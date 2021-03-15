@@ -29,14 +29,14 @@ code {
 .heroTitle {
     color: white;
     font-family: 'Audhistine';
-    font-size: 4vw;
+    font-size: 3.7vw;
 }
 
 .heroText {
     text-align: center;
     width: 100%;
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -50,6 +50,45 @@ code {
 
 .container {
     height: 100%;
+}
+
+.btn {
+    width: 90px;
+    height: 45px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.199);
+    border: 0px solid white;
+    outline: none;
+    transition: 1s ease-in-out;
+    position: relative;
+    text-align: center;
+}
+
+svg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+}
+
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: rgba(0, 0, 0, 0.103);
+}
+
+.btn:hover svg {
+    stroke-dashoffset: -270;
+}
+
+.btn p {
+    color: white;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
 }
 
 @font-face {
