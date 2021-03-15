@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/hannum-ever-after/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/hannum-ever-after/static/js/main.0d5edde9.chunk.js",
-    "main.js.map": "/hannum-ever-after/static/js/main.0d5edde9.chunk.js.map",
+    "main.css": "/hannum-ever-after/static/css/main.29183681.chunk.css",
+    "main.js": "/hannum-ever-after/static/js/main.501d12f3.chunk.js",
+    "main.js.map": "/hannum-ever-after/static/js/main.501d12f3.chunk.js.map",
     "runtime-main.js": "/hannum-ever-after/static/js/runtime-main.1f8b9a37.js",
     "runtime-main.js.map": "/hannum-ever-after/static/js/runtime-main.1f8b9a37.js.map",
     "static/js/2.57d0aca9.chunk.js": "/hannum-ever-after/static/js/2.57d0aca9.chunk.js",
@@ -10,14 +10,15 @@
     "static/js/3.9636df99.chunk.js": "/hannum-ever-after/static/js/3.9636df99.chunk.js",
     "static/js/3.9636df99.chunk.js.map": "/hannum-ever-after/static/js/3.9636df99.chunk.js.map",
     "index.html": "/hannum-ever-after/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/hannum-ever-after/static/css/main.8c8b27cf.chunk.css.map",
+    "static/css/main.29183681.chunk.css.map": "/hannum-ever-after/static/css/main.29183681.chunk.css.map",
     "static/js/2.57d0aca9.chunk.js.LICENSE.txt": "/hannum-ever-after/static/js/2.57d0aca9.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/hannum-ever-after/static/media/hero_image_placeholder.716ab2af.jpg",
     "static/media/logo.6ce24c58.svg": "/hannum-ever-after/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.1f8b9a37.js",
     "static/js/2.57d0aca9.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.0d5edde9.chunk.js"
+    "static/css/main.29183681.chunk.css",
+    "static/js/main.501d12f3.chunk.js"
   ]
 }
