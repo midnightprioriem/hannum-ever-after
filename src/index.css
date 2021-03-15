@@ -48,6 +48,19 @@ code {
     letter-spacing: .2vw;
 }
 
+p.avoidwrap {
+    display: inline-block;
+}
+
+@media only screen and (max-width: 700px) {
+    .heroTitle {
+        font-size: 8vw;
+    }
+    .heroSubtitle {
+        font-size: 4vw;
+    }
+}
+
 .container {
     height: 100%;
 }
