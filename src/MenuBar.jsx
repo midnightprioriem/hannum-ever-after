@@ -11,6 +11,7 @@ var appBarStyles = makeStyles({
     },
     appBarRegular: {
         background: 'rgba(0, 0, 0, 0.4);',
+        boxShadow: '0 0px 0px 0px rgba(255, 105, 135, .3)',
         backdropFilter: 'blur(20px)',
         transition: '.5s ease-in-out',
     }
@@ -23,13 +24,11 @@ const MenuBar = (props) => {
     const titleStyle = {
         color: 'white',
         fontFamily: 'Audhistine',
-        fontSize: '.7em',
+        fontSize: '1em',
         marginLeft: '3em'
     };
 
     const handleScroll = () => {
-        console.log("hello?");
-        console.log(document.documentElement.scrollTop);
         if (document.documentElement.scrollTop === 0) {
             setIsTop(true);
         } else {
