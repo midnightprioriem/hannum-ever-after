@@ -1,15 +1,11 @@
 import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
-import stationTwoLogo from './assets/station_two_logo.png'
-import stationTwoImage from './assets/station_two_image.jpeg'
+import Countdown from 'react-countdown';
 import { useEffect, useState, useRef} from 'react';
 
-
-const Venue = () => {
+const When = () => {
     const [fade, setFade] = useState(false);
     const viewRef = useRef(null);
-
-    const stationTwoLink = 'https://stationno2.com/#home';
 
     const divTitleTextStyle = {
         textAlign: 'center',
@@ -18,16 +14,15 @@ const Venue = () => {
 
     const textDivStyle = {
         textAlign: 'center',
-        padding: '50px',
+        padding: '20px',
         /*backgroundColor: '#f5e9ee',*/
         height: '250px',
         marginTop: 'auto',
         marginBottom: 'auto',
     }
 
-    const imageStyle = {
-        objectFit: 'cover',
-        objectPosition: 'center',
+    const backgroundColor = {
+        backgroundColor: '#fff8f7'
     }
 
     const handleScroll = () => {
@@ -49,28 +44,35 @@ const Venue = () => {
         }
     });
 
+    
+    const countdownRenderer = ({ days, hours, minutes, seconds }) => {
+          let dayText = days !== 1 ? 'DAYS' : 'DAY';
+          let hourText = hours !== 1 ? 'HOURS' : 'HOUR';
+          let minuteText = minutes !== 1 ? 'MINUTES' : 'MINUTE';
+          let secondText = seconds !== 1 ? 'SECONDS' : 'SECOND';
+          return <p>{days} {dayText}, {hours} {hourText}, {minutes} {minuteText}, AND {seconds} {secondText} LEFT!</p>;
+      };
     return (
         <Fade in={fade} timeout={1000}>
+            <div style={backgroundColor}>
             <Grid container spacing={0} ref={viewRef}>
                 <Grid item xs={12}>
                     <div style={divTitleTextStyle}>
-                        <p>WHERE</p>
+                        <p>WHEN</p>
                     </div>
                 </Grid>
-                <Grid item xs={12} sm={7}>
+                <Grid item xs={12}>
                     <div style={textDivStyle}>
-                        <img src={stationTwoLogo} alt='' width='70px' />
-                        <h2><a href={stationTwoLink}>Station No. 2</a></h2>
-                        <p>602 S 5th AVE,</p>
-                        <p>WILMINGTON, NC 28401</p>
+                        {/*Put clock logo here*/}
+                        <h2>November 6th, 2021</h2>
+                        <h2>4:00 PM</h2>
+                        <Countdown renderer={countdownRenderer} date={new Date('November 6, 2021 15:00:00 EST')} />
                     </div>
-                </Grid>
-                <Grid item xs={12} sm={5}>
-                    <img src={stationTwoImage} alt='' width='100%' height='350px' style={imageStyle} />
                 </Grid>
             </Grid>
+            </div>
         </Fade>
     );
 };
 
-export default Venue;
+export default When;

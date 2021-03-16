@@ -51,7 +51,7 @@ const MenuBar = (props) => {
             position='fixed'
             className={isTop ? classes.appBarTop : classes.appBarRegular}
         >
-            <span style={titleStyle}>Bella & Zach</span>
+            <span style={titleStyle}>B & Z</span>
         </AppBar>
     );
 };

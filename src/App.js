@@ -4,6 +4,7 @@ import Hero from './Hero';
 import MenuBar from './MenuBar';
 import Grid from '@material-ui/core/Grid';
 import Venue from './Venue'
+import When from './When'
 
 const contentDivStyle = {
   position: 'absolute',
@@ -18,6 +19,7 @@ function App() {
       <Hero />
       <div style={contentDivStyle}>
       <Venue />
+      <When />
       </div>
   </div>
   );
