@@ -1,6 +1,7 @@
 import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
 import Countdown from 'react-countdown';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 import { useEffect, useState, useRef} from 'react';
 
 const When = () => {
@@ -63,7 +64,13 @@ const When = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <div style={textDivStyle}>
-                        {/*Put clock logo here*/}
+                        <ScheduleIcon style={{ 
+                            color: 'black',
+                            display: 'block',
+                            margin: 'auto',
+                            position: 'relative' ,
+                            fontSize: '40'
+                            }}/>
                         <h2>November 6th, 2021</h2>
                         <h2>4:00 PM</h2>
                         <Countdown renderer={countdownRenderer} date={new Date('November 6, 2021 15:00:00 EST')} />
