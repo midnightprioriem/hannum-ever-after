@@ -31,8 +31,10 @@ const Venue = () => {
     }
 
     const handleScroll = () => {
-        let center = 500 - viewRef.current.getBoundingClientRect().top; //Using hardcoded value...
-        console.log(center);
+        //Fade in when top of component is within top 2/3 of viewport
+        //in general this should work unless the component is the last in the app and the height is smaller
+        //then 1/3 of the height of the viewport
+        let center = (2 * window.innerHeight / 3) - viewRef.current.getBoundingClientRect().top;
         if ( center > 0) {
             setFade(true);
         } else {
