@@ -1,14 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
-import Hero from './Hero.js'
+import Hero from './Hero'
+import MenuBar from './MenuBar'
+
+const contentDivStyle = {
+  position: 'absolute',
+  top: '100%',
+}
 
 function App() {
   return (
     <div className="container">
+      <MenuBar />
       <Hero />
-      <section>
-        <p>hello world!</p>
-      </section>
+      <div style={contentDivStyle}>
+        <section>
+          <p>hello world!</p>
+        </section>
+        <section>
+          <p>hello world!</p>
+        </section>
+        <section>
+          <p>hello world!</p>
+        </section>
+        <section>
+          <p>hello world!</p>
+        </section>
+        <section>
+          <p>hello world!</p>
+        </section>
+        <section>
+          <p>hello world!</p>
+        </section>
+        <section>
+          <p>hello world!</p>
+        </section>
+        <section>
+          <p>hello world!</p>
+        </section>
+      </div>
     </div>
     // <div className="App">
     //   <header className="App-header">
