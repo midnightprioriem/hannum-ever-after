@@ -1,7 +1,7 @@
 import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
 import { useEffect, useState, useRef } from 'react';
-
+import './block.css'
 
 const Block = (props) => {
     const [fade, setFade] = useState(false);

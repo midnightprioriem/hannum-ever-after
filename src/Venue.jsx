@@ -7,36 +7,17 @@ const Venue = () => {
 
     const stationTwoLink = 'https://stationno2.com/#home';
 
-    const divTitleTextStyle = {
-        textAlign: 'center',
-        marginTop: '50px',
-    }
-
-    const textDivStyle = {
-        textAlign: 'center',
-        /*backgroundColor: '#f5e9ee',*/
-        height: '350px',
-        marginTop: 'auto',
-        marginBottom: 'auto',
-    }
-
-    const imageStyle = {
-        objectFit: 'cover',
-        objectPosition: 'center',
-        height: '350px'
-    }
-
     return (
         <Block>
             <Grid item xs={12}>
-                <div style={divTitleTextStyle}>
+                <div className={'divTitleTextStyle'}>
                     <div className={'verticalCenter'}>
                         <p>WHERE</p>
                     </div>
                 </div>
             </Grid>
             <Grid item xs={12} sm={7}>
-                <div style={textDivStyle}>
+                <div className={'blockDivStyle'}>
                     <div className={'verticalCenter'}>
                         <img src={stationTwoLogo} alt='' width='70px' />
                         <h2 className={'headerTwoBlockText'}><a href={stationTwoLink}>Station No. 2</a></h2>
@@ -46,7 +27,7 @@ const Venue = () => {
                 </div>
             </Grid>
             <Grid item xs={12} sm={5}>
-                <img src={stationTwoImage} alt='' width='100%' style={imageStyle} />
+                <img src={stationTwoImage} alt='' width='100%' className={'blockImageStyle'} />
             </Grid>
         </Block>
     );
