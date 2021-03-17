@@ -121,7 +121,6 @@ p {
 h2 {
     font-family: 'Playfair Display', serif;
     letter-spacing: .4vw;
-    font-size: 2em;
     margin: 5px;
 }
 
@@ -177,4 +176,39 @@ a:hover:after {
 .centerCropped {
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+
+/* Text sizing in view blocks */
+
+
+/* xs */
+
+@media screen and (max-width: 600px) {
+    .headerTwoBlockText {
+        font-size: 10vw;
+    }
+    .paragraphBlockText {
+        font-size: 3vw;
+    }
+}
+
+
+/* sm and larger */
+
+@media screen and (min-width: 600px) {
+    .headerTwoBlockText {
+        font-size: 3vw;
+    }
+    .paragraphBlockText {
+        font-size: 1.7vw;
+    }
+}
+
+.verticalCenter {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }

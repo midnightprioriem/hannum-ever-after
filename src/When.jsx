@@ -56,9 +56,9 @@ const When = () => {
           return <p>{days} {dayText}, {hours} {hourText}, {minutes} {minuteText}, AND {seconds} {secondText} LEFT!</p>;
       };
     return (
-        <Fade in={fade} timeout={1000}>
+        <Fade in={fade} timeout={1000} ref={viewRef}>
             <div style={backgroundColor}>
-            <Grid container spacing={0} ref={viewRef}>
+            <Grid container spacing={0} >
                 <Grid item xs={12}>
                     <div style={divTitleTextStyle}>
                         <p>WHEN</p>

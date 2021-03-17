@@ -2,7 +2,7 @@ import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
 import stationTwoLogo from './assets/station_two_logo.png'
 import stationTwoImage from './assets/station_two_image.jpeg'
-import { useEffect, useState, useRef} from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 
 const Venue = () => {
@@ -18,9 +18,8 @@ const Venue = () => {
 
     const textDivStyle = {
         textAlign: 'center',
-        padding: '50px',
         /*backgroundColor: '#f5e9ee',*/
-        height: '250px',
+        height: '350px',
         marginTop: 'auto',
         marginBottom: 'auto',
     }
@@ -28,6 +27,7 @@ const Venue = () => {
     const imageStyle = {
         objectFit: 'cover',
         objectPosition: 'center',
+        height: '350px'
     }
 
     const handleScroll = () => {
@@ -35,7 +35,7 @@ const Venue = () => {
         //in general this should work unless the component is the last in the app and the height is smaller
         //then 1/3 of the height of the viewport
         let center = (2 * window.innerHeight / 3) - viewRef.current.getBoundingClientRect().top;
-        if ( center > 0) {
+        if (center > 0) {
             setFade(true);
         } else {
             setFade(false);
@@ -52,23 +52,27 @@ const Venue = () => {
     });
 
     return (
-        <Fade in={fade} timeout={1000}>
-            <Grid container spacing={0} ref={viewRef}>
+        <Fade in={fade} timeout={1000} ref={viewRef}>
+            <Grid container spacing={0}>
                 <Grid item xs={12}>
                     <div style={divTitleTextStyle}>
-                        <p>WHERE</p>
+                        <div className={'verticalCenter'}>
+                            <p>WHERE</p>
+                        </div>
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={7}>
                     <div style={textDivStyle}>
-                        <img src={stationTwoLogo} alt='' width='70px' />
-                        <h2><a href={stationTwoLink}>Station No. 2</a></h2>
-                        <p>602 S 5th AVE,</p>
-                        <p>WILMINGTON, NC 28401</p>
+                        <div className={'verticalCenter'}>
+                            <img src={stationTwoLogo} alt='' width='70px' />
+                            <h2 className={'headerTwoBlockText'}><a href={stationTwoLink}>Station No. 2</a></h2>
+                            <p className={'paragraphBlockText'}>602 S 5th AVE,</p>
+                            <p className={'paragraphBlockText'}>WILMINGTON, NC 28401</p>
+                        </div>
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={5}>
-                    <img src={stationTwoImage} alt='' width='100%' height='350px' style={imageStyle} />
+                    <img src={stationTwoImage} alt='' width='100%' style={imageStyle} />
                 </Grid>
             </Grid>
         </Fade>
