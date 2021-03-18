@@ -2,6 +2,7 @@ import Grid from '@material-ui/core/Grid';
 import Block from './Block';
 import stationTwoLogo from './assets/station_two_logo.png'
 import stationTwoImage from './assets/station_two_image.jpeg'
+import './Venue.css'
 
 const Venue = () => {
 

@@ -24,17 +24,10 @@
     }
 }
 
-.verticalCenter {
-    margin: 0;
-    position: relative;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.divTitleTextStyle {
-    text-align: center;
-    margin-top: 50px;
+.blockImageStyle {
+    object-fit: cover;
+    object-position: center;
+    height: 350px;
 }
 
 .blockDivStyle {
@@ -45,8 +38,7 @@
     margin-bottom: auto;
 }
 
-.blockImageStyle {
-    object-fit: cover;
-    object-position: center;
-    height: 350px;
+.divTitleTextStyle {
+    text-align: center;
+    margin-top: 50px;
 }

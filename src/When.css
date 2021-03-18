@@ -1,0 +1,44 @@
+/* Text sizing in view blocks */
+
+
+/* xs */
+
+@media screen and (max-width: 600px) {
+    .headerTwoBlockText {
+        font-size: 8vw;
+    }
+    .paragraphBlockText {
+        font-size: 2.5vw;
+    }
+}
+
+
+/* sm and larger */
+
+@media screen and (min-width: 600px) {
+    .headerTwoBlockText {
+        font-size: 2.5vw;
+    }
+    .paragraphBlockText {
+        font-size: 1.5vw;
+    }
+}
+
+.blockImageStyle {
+    object-fit: cover;
+    object-position: center;
+    height: 300px;
+}
+
+.blockDivStyle {
+    text-align: center;
+    /*background-color: '#f5e9ee';*/
+    height: 300px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.divTitleTextStyle {
+    text-align: center;
+    margin-top: 50px;
+}

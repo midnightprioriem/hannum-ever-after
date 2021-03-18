@@ -2,11 +2,13 @@ import Grid from '@material-ui/core/Grid';
 import Block from './Block';
 import Countdown from 'react-countdown';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import './When.css'
 
 const When = () => {
 
     const backgroundColor = {
-        backgroundColor: '#fff8f7'
+        backgroundColor: '#fff8f7',
+        width: '100%'
     }
 
     const countdownRenderer = ({ days, hours, minutes, seconds }) => {
@@ -18,22 +20,20 @@ const When = () => {
     };
 
     return (
-        <div style={backgroundColor}>
-            <Block>
-                <Grid item xs={12}>
-                    <div className={'divTitleTextStyle'}>
-                        <p>WHEN</p>
-                    </div>
-                </Grid>
+        <Block>
+            <div style={backgroundColor}>
                 <Grid item xs={12}>
                     <div className={'blockDivStyle'}>
                         <div className={'verticalCenter'}>
+                            <div className={'divTitleTextStyle'}>
+                                <p>WHEN</p>
+                            </div>
                             <ScheduleIcon style={{
                                 color: 'black',
                                 display: 'block',
                                 margin: 'auto',
                                 position: 'relative',
-                                fontSize: '4vw'
+                                fontSize: '40px'
                             }} />
                             <h2 className={'headerTwoBlockText'}>November 6th, 2021</h2>
                             <h2 className={'headerTwoBlockText'}>4:00 PM</h2>
@@ -41,8 +41,8 @@ const When = () => {
                         </div>
                     </div>
                 </Grid>
-            </Block>
-        </div>
+            </div>
+        </Block>
     );
 };
 
