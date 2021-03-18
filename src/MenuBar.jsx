@@ -1,9 +1,10 @@
-import AppBar from '@material-ui/core/AppBar';
+import { AppBar, IconButton, Toolbar, Button } from '@material-ui/core/';
+import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useState } from 'react';
 
 
-var appBarStyles = makeStyles({
+var appBarStyles = makeStyles((theme) => ({
     appBarTop: {
         background: 'transparent',
         boxShadow: '0 0px 0px 0px rgba(255, 105, 135, .3)',
@@ -13,20 +14,28 @@ var appBarStyles = makeStyles({
         background: 'rgba(0, 0, 0, 0.4);',
         boxShadow: '0 0px 0px 0px rgba(255, 105, 135, .3)',
         backdropFilter: 'blur(20px)',
-        transition: '.5s ease-in-out',
+        transition: '1s ease-in-out',
+    },
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    title: {
+        flexGrow: 1,
+    },
+    button: {
+        fontSize: '18px',
+        fontFamily: '\'Josefin Sans\', sans-serif',
+        padding: '5px',
+        marginLeft: '3vw'
     }
-});
+}));
 
 const MenuBar = (props) => {
     const [isTop, setIsTop] = useState(true);
     const classes = appBarStyles();
-
-    const titleStyle = {
-        color: 'white',
-        fontFamily: 'Audhistine',
-        fontSize: '1em',
-        marginLeft: '3em'
-    };
 
     const handleScroll = () => {
         if (document.documentElement.scrollTop === 0) {
@@ -46,13 +55,20 @@ const MenuBar = (props) => {
 
 
     return (
-        <AppBar
-            // className={clsx(classes.root, className)}
-            position='fixed'
-            className={isTop ? classes.appBarTop : classes.appBarRegular}
-        >
-            <span style={titleStyle}>B & Z</span>
-        </AppBar>
+            <AppBar
+                position='fixed'
+                className={isTop ? classes.appBarTop : classes.appBarRegular}>
+                <Toolbar>
+                    {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <MenuIcon />
+                </IconButton> */}
+                    <Button color="inherit" className={classes.button}>Where</Button>
+                    <Button color="inherit" className={classes.button}>When</Button>
+                    <Button color="inherit" className={classes.button}>Our Story</Button>
+                    <Button color="inherit" className={classes.button}>Registry</Button>
+                    <Button color="inherit" className={classes.button}>RSVP</Button>
+                </Toolbar>
+            </AppBar>
     );
 };
 
