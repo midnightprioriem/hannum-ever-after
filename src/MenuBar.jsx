@@ -34,48 +34,12 @@ var appBarStyles = makeStyles((theme) => ({
 }));
 
 const MenuBar = (props) => {
-    const [isTop, setIsTop] = useState(true);
-    const [scrollY, setScrollY] = useState(0);
-    const [topBarMargin, setTopBarMargin] = useState(0);
     const classes = appBarStyles();
-    var appBarHeight;
-
-    const handleScroll = () => {
-        if (document.documentElement.scrollTop === 0) {
-            setIsTop(true);
-        } else {
-            setIsTop(false);
-            let y = document.documentElement.scrollTop;
-            let diff = y - scrollY;
-            if(diff > 0) {
-                setTopBarMargin(-appBarHeight);
-            } 
-            else
-            {
-                setTopBarMargin(0);
-            }
-            setScrollY(y);
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        appBarHeight = document.getElementById('appBar').clientHeight
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-
-        }
-    });
-
 
     return (
             <AppBar
                 position='fixed'
-                className={isTop ? classes.appBarTop : classes.appBarRegular}
-                style={{
-                    marginTop : topBarMargin,
-                    transition: '1s ease-in-out',
-                }}
+                className={classes.appBarRegular}
                 id={'appBar'}>
                 <Toolbar>
                     {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">

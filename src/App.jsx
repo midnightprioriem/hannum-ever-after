@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import Hero from './Hero';
 import MenuBar from './MenuBar';
-import Grid from '@material-ui/core/Grid';
 import Venue from './Venue'
 import When from './When'
+import Registry from './Registry'
 
 const contentDivStyle = {
   position: 'absolute',
@@ -20,6 +19,7 @@ function App() {
       <div style={contentDivStyle}>
       <Venue />
       <When />
+      <Registry />
       </div>
   </div>
   );
