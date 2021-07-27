@@ -1,8 +1,5 @@
-import { AppBar, IconButton, Toolbar, Button } from '@material-ui/core/';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar, Button } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-import { useEffect, useState } from 'react';
-
 
 var appBarStyles = makeStyles((theme) => ({
     appBarTop: {
