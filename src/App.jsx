@@ -6,7 +6,6 @@ import Venue from './Venue';
 import When from './When';
 import Registry from './Registry';
 import Rsvp from './Rsvp';
-import Hashtag from './Hashtag';
 import styles from './app.module.css';
 import Footer from './Footer';
 
@@ -19,7 +18,6 @@ function App() {
       <div className={styles.background}>
         <div
           className={styles.contentDivStyle}>
-          <Hashtag />
           <Venue id='venue'/>
           <When id='when'/>
           <Registry id='registry'/>
