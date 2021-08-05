@@ -1,0 +1,19 @@
+.div {
+    margin: 10px;
+    /* border-radius: 20px; */
+    transition-duration: 300ms;
+    background-color: rgb(199, 176, 112);
+    /* border-radius: 10px; */
+}
+
+.div:hover {
+    transform: translateY(-7%);
+}
+
+.div:active {
+    transform: translateY(0%);
+}
+
+.a {
+    all: revert
+}

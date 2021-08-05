@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
-html,
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');html,
 body {
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
+    background-color: #ffffff;
 }
 
 body {
@@ -115,62 +117,25 @@ svg {
 
 p {
     font-family: 'Josefin Sans', sans-serif;
-    letter-spacing: .2vw;
-}
-
-h2 {
-    font-family: 'Playfair Display', serif;
-    letter-spacing: .4vw;
-    margin: 5px;
+    font-size: 1.25em;
+    /* letter-spacing: .2vw; */
 }
 
 h1 {
-    font-family: 'Audhistine';
+    font-family: 'Playfair Display SC', serif;
+    letter-spacing: .3vw;
+    font-size: 4em;
+    margin-block-start: .1em;
+    margin-block-end: .1em;
+}
+
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3em;
     letter-spacing: .2vw;
-}
-
-
-/* Link Style 10 */
-
-a {
-    position: relative;
-    text-decoration: none;
-    color: black;
-    transition: color .15s ease-in-out;
-}
-
-a:hover {
-    background-size: 100% 100%;
-    cursor: pointer;
-}
-
-a:after {
-    display: block;
-    content: "";
-    position: absolute;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    opacity: 0;
-    transform: translateY(-150%);
-    transition: transform .15s ease-in-out, opacity .15s ease-in-out;
-    background-color: gray;
-}
-
-a.is-active,
-a:active,
-a:focus,
-a:hover {
-    color: gray;
-}
-
-a.is-active:after,
-a:active:after,
-a:focus:after,
-a:hover:after {
-    transform: translateY(0);
-    opacity: 1;
+    font-weight: normal;
+    margin-block-start: .5em;
+    margin-block-end: .5em;
 }
 
 .centerCropped {

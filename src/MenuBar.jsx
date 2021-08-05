@@ -33,22 +33,28 @@ var appBarStyles = makeStyles((theme) => ({
 const MenuBar = (props) => {
     const classes = appBarStyles();
 
+    const handleScrollIntoView = (id) => {
+        document.getElementById(id).scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
+    }
+
     return (
-            <AppBar
-                position='fixed'
-                className={classes.appBarRegular}
-                id={'appBar'}>
-                <Toolbar>
-                    {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+        <AppBar
+            position='fixed'
+            className={classes.appBarRegular}
+            id={'appBar'}>
+            <Toolbar>
+                {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                     <MenuIcon />
                 </IconButton> */}
-                    <Button color="inherit" className={classes.button}>Where</Button>
-                    <Button color="inherit" className={classes.button}>When</Button>
-                    <Button color="inherit" className={classes.button}>Our Story</Button>
-                    <Button color="inherit" className={classes.button}>Registry</Button>
-                    <Button color="inherit" className={classes.button}>RSVP</Button>
-                </Toolbar>
-            </AppBar>
+                <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('venue')}>Venue</Button>
+                <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('when')}>When</Button>
+                <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('registry')}>Registry</Button>
+            </Toolbar>
+        </AppBar>
     );
 };
 

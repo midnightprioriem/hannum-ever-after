@@ -1,43 +1,28 @@
-import Grid from '@material-ui/core/Grid';
 import Block from './Block';
+import React from 'react';
+import registry from './assets/registry.svg';
+import linkStyles from './links.module.css';
+import styles from './registry.module.css';
+import crateAndBarrel from './assets/crateandbarrel.png';
+import cash from './assets/cash.png'
 import RegistryCard from './RegistryCard';
-import { makeStyles } from '@material-ui/core/styles';
-// import ScheduleIcon from '@material-ui/icons/Schedule';
 
-const useStyles = makeStyles({
-    grid: {
-        justifyContent: 'center',
-        alignContent: 'center',
-        height: '100%'
-    },
-    background: {
-        backgroundColor: '#fff8f7',
-        width: '100%',
-        height: '400px',
-    },
-});
-
-const Registry = () => {
-
-    const classes = useStyles();
-
+const Registry = (props) => {
     return (
-        <Block>
-            <div className={classes.background}>
-                <Grid container
-                    spacing={2}
-                    className={classes.grid}>
-                    <Grid item>
-                        <RegistryCard></RegistryCard>
-                    </Grid>
-                    <Grid item>
-                        <RegistryCard></RegistryCard>
-                    </Grid>
-                    <Grid item>
-                        <RegistryCard></RegistryCard>
-                    </Grid>
-                </Grid>
+        <Block blockTitle="Registry" {...props}>
+            <img src={registry} alt="" style={{ height: '250px' }} />
+            <div className={styles.text}>
+                <p>The best present you could give is to join us in the celebration of our marriage. However, if you'd like to spoil us, we have
+                    a gift registry through <a href="https://www.crateandbarrel.com/gift-registry/zach-hannum-and-bella-anderson/r6082663"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={linkStyles.link}>Crate and Barrel
+                    </a>.
+                </p>
             </div>
+            {/*<div className={styles.grid}>
+                        <RegistryCard image={crateAndBarrel}/>
+             </div>*/}
         </Block>
     );
 };
