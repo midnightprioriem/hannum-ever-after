@@ -1,10 +1,12 @@
-import Grid from '@material-ui/core/Grid';
-import Fade from '@material-ui/core/Fade';
-import { useEffect, useState, useRef } from 'react';
+import { Grid, Fade } from '@material-ui/core';
+import React, { useEffect, useState, useRef } from 'react';
+// @ts-ignore
+import styles from './block.module.css'
 
 const Block = (props) => {
     const [fade, setFade] = useState(false);
     const viewRef = useRef(null);
+    const { blockTitle, id } = props;
 
     const handleScroll = () => {
         //Fade in when top of component is within top 2/3 of viewport
@@ -28,11 +30,16 @@ const Block = (props) => {
     });
 
     return (
-        <Fade in={fade} timeout={1000} ref={viewRef}>
-            <Grid container spacing={0}>
-                {props.children}
-            </Grid>
-        </Fade>
+        <div className={styles.root} id={id}>
+            <Fade in={fade} timeout={1000} ref={viewRef} 
+            className={styles.fadeIn}>
+                <Grid container spacing={0}>
+                    <h1>{blockTitle}</h1>
+                    {blockTitle && <hr className={styles.hr}/>}
+                    {props.children}
+                </Grid>
+            </Fade>
+        </div>
     );
 };
 

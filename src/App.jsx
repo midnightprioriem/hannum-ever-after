@@ -1,27 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
 import Hero from './Hero';
 import MenuBar from './MenuBar';
-import Grid from '@material-ui/core/Grid';
 import Venue from './Venue'
 import When from './When'
-
-const contentDivStyle = {
-  position: 'absolute',
-  top: '100%',
-  width: '100%',
-}
+import Registry from './Registry'
+import React from 'react';
+import Hashtag from './Hashtag';
+import styles from './app.module.css';
+import Footer from './Footer';
 
 function App() {
+
   return (
     <div className="container">
       <MenuBar />
       <Hero />
-      <div style={contentDivStyle}>
-      <Venue />
-      <When />
+      <div className={styles.background}>
+        <div
+          className={styles.contentDivStyle}>
+          <Hashtag />
+          <Venue id='venue'/>
+          <When id='when'/>
+          <Registry id='registry'/>
+          <Footer />
+        </div>
       </div>
-  </div>
+
+    </div>
   );
 }
 

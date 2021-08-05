@@ -1,0 +1,9 @@
+.hashtag {
+    font-size: 4vmax;
+    font-weight: normal;
+    letter-spacing: .25em;
+}
+
+.root {
+    width: 100% !important; 
+}

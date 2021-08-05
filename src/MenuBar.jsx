@@ -1,8 +1,5 @@
-import { AppBar, IconButton, Toolbar, Button } from '@material-ui/core/';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar, Button } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-import { useEffect, useState } from 'react';
-
 
 var appBarStyles = makeStyles((theme) => ({
     appBarTop: {
@@ -34,60 +31,30 @@ var appBarStyles = makeStyles((theme) => ({
 }));
 
 const MenuBar = (props) => {
-    const [isTop, setIsTop] = useState(true);
-    const [scrollY, setScrollY] = useState(0);
-    const [topBarMargin, setTopBarMargin] = useState(0);
     const classes = appBarStyles();
-    var appBarHeight;
 
-    const handleScroll = () => {
-        if (document.documentElement.scrollTop === 0) {
-            setIsTop(true);
-        } else {
-            setIsTop(false);
-            let y = document.documentElement.scrollTop;
-            let diff = y - scrollY;
-            if(diff > 0) {
-                setTopBarMargin(-appBarHeight);
-            } 
-            else
-            {
-                setTopBarMargin(0);
-            }
-            setScrollY(y);
-        }
+    const handleScrollIntoView = (id) => {
+        document.getElementById(id).scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
     }
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        appBarHeight = document.getElementById('appBar').clientHeight
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-
-        }
-    });
-
-
     return (
-            <AppBar
-                position='fixed'
-                className={isTop ? classes.appBarTop : classes.appBarRegular}
-                style={{
-                    marginTop : topBarMargin,
-                    transition: '1s ease-in-out',
-                }}
-                id={'appBar'}>
-                <Toolbar>
-                    {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+        <AppBar
+            position='fixed'
+            className={classes.appBarRegular}
+            id={'appBar'}>
+            <Toolbar>
+                {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                     <MenuIcon />
                 </IconButton> */}
-                    <Button color="inherit" className={classes.button}>Where</Button>
-                    <Button color="inherit" className={classes.button}>When</Button>
-                    <Button color="inherit" className={classes.button}>Our Story</Button>
-                    <Button color="inherit" className={classes.button}>Registry</Button>
-                    <Button color="inherit" className={classes.button}>RSVP</Button>
-                </Toolbar>
-            </AppBar>
+                <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('venue')}>Venue</Button>
+                <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('when')}>When</Button>
+                <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('registry')}>Registry</Button>
+            </Toolbar>
+        </AppBar>
     );
 };
 
