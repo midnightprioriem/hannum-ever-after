@@ -30,7 +30,7 @@ const Block = (props) => {
     });
 
     return (
-        <div className={styles.root} id={id}>
+        <div className={styles.root} id={id} >
             <Fade in={fade} timeout={1000} ref={viewRef} 
             className={styles.fadeIn}>
                 <Grid container spacing={0}>

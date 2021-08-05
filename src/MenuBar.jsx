@@ -53,6 +53,7 @@ const MenuBar = (props) => {
                 <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('venue')}>Venue</Button>
                 <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('when')}>When</Button>
                 <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('registry')}>Registry</Button>
+                <Button color="inherit" className={classes.button} onClick={() => handleScrollIntoView('rsvp')}>RSVP</Button>
             </Toolbar>
         </AppBar>
     );

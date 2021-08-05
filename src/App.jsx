@@ -1,10 +1,11 @@
+import React from 'react';
 import './App.css';
 import Hero from './Hero';
 import MenuBar from './MenuBar';
-import Venue from './Venue'
-import When from './When'
-import Registry from './Registry'
-import React from 'react';
+import Venue from './Venue';
+import When from './When';
+import Registry from './Registry';
+import Rsvp from './Rsvp';
 import Hashtag from './Hashtag';
 import styles from './app.module.css';
 import Footer from './Footer';
@@ -22,6 +23,7 @@ function App() {
           <Venue id='venue'/>
           <When id='when'/>
           <Registry id='registry'/>
+          <Rsvp id='rsvp'/>
           <Footer />
         </div>
       </div>
