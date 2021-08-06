@@ -1,6 +1,6 @@
 import React from 'react';
-import Block from './Block';
-import styles from './venue.module.css';
+import Block from 'components/Block';
+import styles from 'components/venue.module.css';
 
 const Venue = (props) => {
 

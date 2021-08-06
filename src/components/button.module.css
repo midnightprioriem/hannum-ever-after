@@ -1,5 +1,5 @@
 .button {
-    border: 0.3em solid #BBA155;
+    border: 0.3em solid #BEA456;
     border-radius: 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -22,7 +22,7 @@
 }
 
 .buttonAlt {
-    border: 0.3em solid #BBA155;
+    border: 0.3em solid #BEA456;
     border-radius: 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -39,5 +39,5 @@
 }
 
 .buttonAlt:hover {
-    background-color: #BBA155;
+    background-color: #BEA456;
 }

@@ -1,6 +1,6 @@
-import Block from './Block';
+import Block from 'components/Block';
 import Countdown from 'react-countdown';
-import styles from './when.module.css'
+import styles from 'components/when.module.css'
 // @ts-ignore
 import React from 'react';
 
@@ -18,7 +18,7 @@ const When = (props) => {
     return (
         <Block blockTitle="When" {...props} button buttonText="add to calendar">
             <div>
-                <h2 >Nov 6th, 2021</h2>
+                <h2 >Nov 6th, 2021<br/>4:00 PM</h2>
                 <Countdown className={styles.p} renderer={countdownRenderer} date={new Date('November 6, 2021 15:00:00 EST')} />
             </div>
         </Block>

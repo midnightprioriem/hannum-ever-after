@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from 'hero.module.css';
-import Button from './Button';
+import styles from 'sections/hero.module.css';
+import Button from 'components/Button';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -11,7 +11,7 @@ const Hero = () => {
         visible: {
             transition: {
                 delayChildren: .75,
-                staggerChildren: .2,
+                staggerChildren: .05,
             }
         }
     }
@@ -25,9 +25,8 @@ const Hero = () => {
             opacity: 1,
             y: 0,
             transition: {
-                duration: .4,
-                type: "spring",
-                ease: "anticipate",
+                duration: .3,
+                ease: "easeInOut",
             }
         }
     }
@@ -43,7 +42,7 @@ const Hero = () => {
                     Bella & Zach
                 </motion.h2>
                 <motion.h1 variants={animations} className={styles.heroSubTitle}>let's get married!</motion.h1>
-                <motion.div variants={animations}>
+                <motion.div variants={animations} >
                     <Button alt>RSVP</Button>
                 </motion.div>
             </motion.div>

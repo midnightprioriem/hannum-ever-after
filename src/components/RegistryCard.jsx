@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './registrycard.module.css';
+import styles from 'components/registrycard.module.css';
 
 const RegistryCard = ({image, link, ...props}) => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Typography } from '@material-ui/core';
-import styles from './footer.module.css';
-import linkStyles from './links.module.css';
+import styles from 'components/footer.module.css';
+import linkStyles from 'components/links.module.css';
 
 const Footer = () => {
     return (

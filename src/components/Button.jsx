@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button as MuiButton} from '@material-ui/core'
-import styles from 'button.module.css';
+import styles from 'components/button.module.css';
 
 const Button = (props) => {
     const {alt} = props;

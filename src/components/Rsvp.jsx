@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, InputAdornment, IconButton } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import Block from './Block';
-import styles from './rsvp.module.css';
+import Block from 'components/Block';
+import styles from 'components/rsvp.module.css';
 import SheetDB from 'sheetdb-js'
 
 const Rsvp = (props) => {

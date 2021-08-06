@@ -1,6 +1,6 @@
-import Block from './Block';
 import React from 'react';
-import styles from './registry.module.css';
+import Block from 'components/Block';
+import styles from 'components/registry.module.css';
 
 const Registry = (props) => {
     return (
