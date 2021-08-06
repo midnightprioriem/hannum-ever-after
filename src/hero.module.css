@@ -1,0 +1,28 @@
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/pics/IMG-0594.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.heroContent {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroTitle {
+    font-size: 6vmax;
+    color: white;
+    padding: 10px;
+}
+
+.heroSubTitle {
+    color: white;
+    font-size: 4vmax;
+    padding: 15px;
+}

@@ -1,19 +1,15 @@
+import React from 'react';
+import styles from 'hero.module.css';
+import Button from './Button';
 
 const Hero = () => {
-    const className = 'hero';
 
     return (
-        <div className={className}>
-            <div className="heroText">
-                <h1 className="heroTitle" >Let's get Married!</h1>
-                <h2 className="heroSubtitle">Bella & Zach</h2>
-                <button className="btn">
-                    <svg width="90px" height="45px" viewBox="0 0 90 45" className="border">
-                        <polyline points="89,1 89,44 1,44 1,1 89,1" className="bg-line" />
-                        <polyline points="89,1 89,44 1,44 1,1 89,1" className="hl-line" />
-                    </svg>
-                    <p>RSVP</p>
-                </button>
+        <div className={styles.hero}>
+            <div className={styles.heroContent}>
+                <h2 className={styles.heroTitle}>Bella & Zach</h2>
+                <h1 className={styles.heroSubTitle}>let's get married!</h1>
+                <Button>RSVP</Button>
             </div>
         </div>
     );

@@ -1,16 +1,5 @@
-.contentDivStyle {
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    top: 100%;
-    width: 100%;
-    max-width: 1500px;
-    
-  }
-
-  .background {
-    margin: auto;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-  }
+.appRoot {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}

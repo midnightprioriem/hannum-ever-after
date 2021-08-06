@@ -14,18 +14,15 @@ function App() {
   return (
     <div className="container">
       <MenuBar />
-      <Hero />
-      <div className={styles.background}>
         <div
-          className={styles.contentDivStyle}>
+          className={styles.appRoot}>
+          <Hero />
           <Venue id='venue'/>
           <When id='when'/>
           <Registry id='registry'/>
           <Rsvp id='rsvp'/>
           <Footer />
         </div>
-      </div>
-
     </div>
   );
 }
