@@ -66,6 +66,7 @@ p {
 h1 {
     font-family: 'script';
     font-size: 5em;
+    font-weight: 200;
     color: #313131;
 }
 
@@ -86,23 +87,31 @@ h3 {
     color: #313131;
 }
 
+
 /* width */
+
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
     background: rgba(119, 119, 119, 0.568);
     border-radius: 5px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
     background: #555;
-  }
+}
