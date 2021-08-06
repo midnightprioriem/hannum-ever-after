@@ -18,7 +18,6 @@ function App() {
           className={styles.appRoot}>
           <Hero />
           <SectionOne />
-          <Rsvp id='rsvp' />
           <Footer />
         </div>
       </div>
