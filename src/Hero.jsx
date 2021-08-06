@@ -5,8 +5,8 @@ const Hero = () => {
     return (
         <div className={className}>
             <div className="heroText">
-                <h1 className="heroTitle" >Bella & Zach</h1>
-                <p className="heroSubtitle">NOVEMBER 6<sup>th</sup>, 2021 • WILMINGTON, NC</p>
+                <h1 className="heroTitle" >Let's get Married!</h1>
+                <h2 className="heroSubtitle">Bella & Zach</h2>
                 <button className="btn">
                     <svg width="90px" height="45px" viewBox="0 0 90 45" className="border">
                         <polyline points="89,1 89,44 1,44 1,1 89,1" className="bg-line" />

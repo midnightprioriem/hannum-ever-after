@@ -1,7 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');html,
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+@font-face {
+    font-family: 'Audhistine';
+    src: local('Audhistine'), url(./assets/Audhistine.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Salted Mocha';
+    src: local('Salted Mocha'), url(./assets/SaltedMocha-Regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'script';
+    src: url('https://static1.squarespace.com/static/5f85fdb7d5304e4e60ebcdc0/t/6023d95a5cc2c73a4731fad0/1612962138453/HLF-BlackCaviar-Slant.otf')
+}
+
+html,
 body {
     width: 100%;
     height: 100%;
@@ -25,7 +41,7 @@ code {
 
 .hero {
     height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/hero_image_placeholder.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/pics/IMG-0594.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,8 +53,9 @@ code {
 
 .heroTitle {
     color: white;
-    font-family: 'Audhistine';
-    font-size: 3.7vw;
+    font-family: 'script';
+    font-size: 5vw;
+    font-weight: 300;
 }
 
 .heroText {
@@ -52,9 +69,7 @@ code {
 
 .heroSubtitle {
     color: white;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 2vw;
-    letter-spacing: .2vw;
+    font-size: 3vw;
 }
 
 p.avoidwrap {
@@ -110,11 +125,6 @@ svg {
     text-align: center;
 }
 
-@font-face {
-    font-family: 'Audhistine';
-    src: local('Audhistine'), url(./assets/Audhistine.ttf) format('truetype');
-}
-
 p {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.25em;
@@ -122,14 +132,21 @@ p {
 }
 
 h1 {
-    font-family: 'Playfair Display SC', serif;
-    letter-spacing: .3vw;
+    font-family: 'script';
     font-size: 4em;
     margin-block-start: .1em;
     margin-block-end: .1em;
 }
 
 h2 {
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 200;
+    font-size: 4em;
+    margin-block-start: .1em;
+    margin-block-end: .1em;
+}
+
+h3 {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 3em;
     letter-spacing: .2vw;
