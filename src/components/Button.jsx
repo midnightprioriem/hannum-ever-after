@@ -3,9 +3,9 @@ import {Button as MuiButton} from '@material-ui/core'
 import styles from 'components/button.module.css';
 
 const Button = (props) => {
-    const {alt} = props;
+    const {alt, ...rest} = props;
     return(
-        <MuiButton variant="outlined" className={alt ? styles.buttonAlt : styles.button} size="large">
+        <MuiButton {...rest} variant="outlined" className={alt ? styles.buttonAlt : styles.button} size="large">
             {props.children}
         </MuiButton>
     )

@@ -9,7 +9,6 @@ const orchestrate = {
     },
     visible: {
         transition: {
-            delayChildren: .75,
             staggerChildren: .05,
         }
     }
@@ -31,7 +30,7 @@ const animations = {
 }
 
 const Block = (props) => {
-    const { blockTitle, id, button, buttonLink, buttonText } = props;
+    const { blockTitle, id, button, buttonLink, buttonText, onClick } = props;
     const animControls = useAnimation();
     const { ref, inView } = useInView({
         threshold: 0.3
@@ -59,7 +58,7 @@ const Block = (props) => {
                 </motion.div>
             </div>
             <motion.div variants={animations}>
-                {button && <Button href={buttonLink}>{buttonText}</Button>}
+                {button && <Button onClick={onClick} href={buttonLink} target="_blank">{buttonText}</Button>}
             </motion.div>
         </motion.div>
     );

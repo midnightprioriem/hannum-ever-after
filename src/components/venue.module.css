@@ -3,3 +3,23 @@
     flex-direction: column;
     text-align: center;
 }
+
+.map {
+    border: 0;
+    height: 100vmin;
+    width: 70vmin;
+    max-height: 1000px;
+    max-width: 1000px;
+}
+
+.mapTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.paper {
+    background-color: #E3E0D8;
+}

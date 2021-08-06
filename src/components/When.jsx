@@ -1,11 +1,15 @@
+import React from 'react';
+
 import Block from 'components/Block';
 import Countdown from 'react-countdown';
 import styles from 'components/when.module.css'
-// @ts-ignore
-import React from 'react';
 
 
 const When = (props) => {
+
+    const handleButtonClick = () => {
+        console.log("Button clicked!");
+    }
 
     const countdownRenderer = ({ days, hours, minutes, seconds }) => {
         let dayText = days !== 1 ? 'days' : 'day';
@@ -16,9 +20,9 @@ const When = (props) => {
     };
 
     return (
-        <Block blockTitle="When" {...props} button buttonText="add to calendar">
+        <Block blockTitle="When" {...props} button buttonText="add to calendar" onClick={handleButtonClick}>
             <div>
-                <h2 >Nov 6th, 2021<br/>4:00 PM</h2>
+                <h2 >Nov 6th, 2021<br />4:00 PM</h2>
                 <Countdown className={styles.p} renderer={countdownRenderer} date={new Date('November 6, 2021 15:00:00 EST')} />
             </div>
         </Block>
