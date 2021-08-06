@@ -8,3 +8,10 @@
     justify-content: space-around;
     align-items: center;
   }
+
+  @media only screen and (min-width: 1300px) {
+    .root {
+      margin-left: 10vw;
+      margin-right: 10vw;
+    }
+  }
