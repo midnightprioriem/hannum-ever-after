@@ -1,6 +1,32 @@
 .button {
     border: 0.3em solid #BBA155;
+    border-radius: 0;
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0.7em 1.2em;
+    margin:.3em 0.3em 0.3em 0.3em;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: 'Josefin Sans', sans-serif;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1em;
+    transition: all .3s;
+}
+
+.button:hover {
+    border: 0.3em solid #000;
+    background-color: #000;
+    color: #fff;
+}
+
+.buttonAlt {
+    border: 0.3em solid #BBA155;
+    border-radius: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     padding: 0.7em 1.2em;
     margin:0 0.3em 0.3em 0;
     background-color: rgba(255, 255, 255, 0);
@@ -12,13 +38,6 @@
     transition: all .3s;
 }
 
-.button:hover {
+.buttonAlt:hover {
     background-color: #BBA155;
-    transform: scale(1.1);
-}
-
-.button:active {
-    border: 0.3em solid #8f7b41;
-    background-color: #8f7b41;
-    transform: scale(1.0);
 }

@@ -1,5 +1,6 @@
 .rsvpDiv {
     display: flex;
+    margin-top: 100px;
     flex-direction: row;
     width: 100% !important;
     min-height: 800px;

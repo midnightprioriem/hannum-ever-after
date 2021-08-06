@@ -24,7 +24,7 @@ body {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-    background-color: #ffffff;
+    background-color: #E3E0D8;
 }
 
 body {
@@ -58,23 +58,22 @@ p.avoidwrap {
 
 p {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.25em;
+    font-size: 1.5em;
+    color: #313131;
     /* letter-spacing: .2vw; */
 }
 
 h1 {
     font-family: 'script';
-    font-size: 4em;
-    margin-block-start: .1em;
-    margin-block-end: .1em;
+    font-size: 5em;
+    color: #313131;
 }
 
 h2 {
     font-family: 'Playfair Display SC', serif;
-    font-weight: 200;
-    font-size: 4em;
-    margin-block-start: .1em;
-    margin-block-end: .1em;
+    font-weight: 500;
+    font-size: 2.4em;
+    color: #313131;
 }
 
 h3 {
@@ -84,6 +83,7 @@ h3 {
     font-weight: normal;
     margin-block-start: .5em;
     margin-block-end: .5em;
+    color: #313131;
 }
 
 /* width */

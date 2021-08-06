@@ -1,20 +1,5 @@
-.blockDivStyle {
-    text-align: center;
-}
-
-.divTitleTextStyle {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.paragraphBlockText {
-    font-size: 1.25em;
-    text-align: center;
+.p {
+    max-width: 300px;
     margin: auto;
-}
-
-.countdownContainer {
-    width: 350px;
-    text-align: left;
-    margin: auto;
+    text-align: justify;
 }

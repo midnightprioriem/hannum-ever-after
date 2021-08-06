@@ -1,11 +1,13 @@
 import React from 'react';
+import {Button as MuiButton} from '@material-ui/core'
 import styles from 'button.module.css';
 
 const Button = (props) => {
+    const {alt} = props;
     return(
-        <button className={styles.button}>
+        <MuiButton variant="outlined" className={alt ? styles.buttonAlt : styles.button} size="large">
             {props.children}
-        </button>
+        </MuiButton>
     )
 }
 

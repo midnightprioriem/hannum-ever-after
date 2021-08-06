@@ -19,10 +19,12 @@
     font-size: 6vmax;
     color: white;
     padding: 10px;
+    margin: .5vmax;
 }
 
 .heroSubTitle {
     color: white;
     font-size: 4vmax;
+    margin: .3vmax;
     padding: 15px;
 }
