@@ -1,5 +1,5 @@
 import React from 'react';
-import { StylesProvider } from '@material-ui/core/styles';
+import { StylesProvider, ThemeProvider, createTheme } from '@material-ui/core/styles';
 import './App.css';
 import Hero from 'sections/Hero';
 import MenuBar from 'components/MenuBar';
@@ -9,21 +9,35 @@ import Rsvp from 'components/Rsvp';
 import styles from 'app.module.css';
 import Footer from 'components/Footer';
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#BEA456',
+    },
+    secondary: {
+      main: '#BEA456',
+    },
+  },
+});
+
 function App() {
 
   return (
-    <StylesProvider injectFirst>
-      <div className="container">
-        <MenuBar />
-        <div
-          className={styles.appRoot}>
-          <Hero />
-          <SectionOne />
-          <SectionTwo />
-          <Footer />
+    <ThemeProvider theme={theme}>
+      <StylesProvider injectFirst>
+        <div className="container">
+          <MenuBar />
+          <div
+            className={styles.appRoot}>
+            <Hero />
+            <SectionOne />
+            <SectionTwo />
+            <Rsvp />
+            <Footer />
+          </div>
         </div>
-      </div>
-    </StylesProvider>
+      </StylesProvider>
+    </ThemeProvider>
   );
 }
 

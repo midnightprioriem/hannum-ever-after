@@ -1,40 +1,21 @@
 import React, { useState } from 'react';
-import { TextField, InputAdornment, IconButton } from '@material-ui/core';
+import { TextField, InputAdornment, IconButton, Checkbox } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Block from 'components/Block';
 import styles from 'components/rsvp.module.css';
-import SheetDB from 'sheetdb-js'
+import SheetDB from 'sheetdb-js';
 
 const Rsvp = (props) => {
 
-    const [name, setName] = useState("");
-    const [familyId, setFamilyId] = useState(-1);
+    const [code, setCode] = useState("");
     const [family, setFamily] = useState([]);
 
-    const handleSearchName = (e) => {
+    const handleSearchCode = (e) => {
         e.preventDefault();
-        const [first, last] = name.trim().split(" ");
-        console.log("first: " + first);
-        console.log("last: " + last);
+        const invitation_code = code.trim();
         SheetDB.read("https://sheetdb.io/api/v1/ysnwocbrmo583", {
             search: {
-                first_name: first,
-                last_name: last,
-            }
-        }).then((result) => {
-            console.log(result);
-            const [person] = result;
-            setFamilyId(person.family_id);
-            searchFamily();
-        }, (error) => {
-            console.log(error);
-        });
-    }
-
-    const searchFamily = () => {
-        SheetDB.read("https://sheetdb.io/api/v1/ysnwocbrmo583", {
-            search: {
-                family_id: familyId
+                invitation_code: invitation_code,
             }
         }).then((result) => {
             console.log(result);
@@ -43,28 +24,28 @@ const Rsvp = (props) => {
             console.log(error);
         });
     }
-    
+
     const handleRsvpSubmit = (e) => {
         e.preventDefault();
     }
 
     return (
         <div className={styles.rsvpDiv}>
-            <Block blockTitle="RSVP" {...props}>
-                <form className={styles.form} onSubmit={handleSearchName}>
-                    <p>Enter your name to find your RSVP.</p>
+            <Block blockTitle="RSVP" titleClass={styles.title} {...props}>
+                <form className={styles.form} onSubmit={handleSearchCode}>
+                    <p>Enter the code that came with your invitation to locate your RSVP.</p>
                     <TextField
-                        id="name"
-                        label="Name" variant="outlined" fullWidth
-                        onChange={e => setName(e.target.value)}
+                        id="code"
+                        required
+                        label="Code" variant="outlined" fullWidth
+                        onChange={e => setCode(e.target.value)}
                         InputProps={{
-                            className: styles.textInput,
                             endAdornment:
                                 <InputAdornment position="end">
                                     <IconButton
                                         size="medium"
-                                        aria-label="submit name"
-                                        onClick={handleSearchName}
+                                        aria-label="submit code"
+                                        onClick={handleSearchCode}
                                     >
                                         <ArrowForwardIcon />
                                     </IconButton>
@@ -73,7 +54,18 @@ const Rsvp = (props) => {
                     />
                 </form>
                 <form className={styles.form} onSubmit={handleRsvpSubmit} >
-                {family.map(({id, first_name, last_name}) => <p key={id}>{first_name} {last_name}</p>)}
+                    {family.map(({ id, first_name, last_name }) =>
+                        <div className={styles.rsvpResponseDiv}>
+                            <h2 key={id}>{first_name} {last_name}</h2>
+                            <div className={styles.rsvpFlex}>
+                                <p>Will be attending?*</p>
+                                <div>
+                                    <Checkbox required />
+                                </div>
+                            </div>
+                            <hr className={styles.hr} />
+                        </div>
+                    )}
                 </form>
             </Block>
         </div>

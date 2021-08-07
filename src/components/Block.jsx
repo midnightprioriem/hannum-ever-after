@@ -30,10 +30,10 @@ const animations = {
 }
 
 const Block = (props) => {
-    const { blockTitle, id, button, buttonLink, buttonText, onClick } = props;
+    const { blockTitle, titleClass, id, button, buttonLink, buttonText, onClick } = props;
     const animControls = useAnimation();
     const { ref, inView } = useInView({
-        threshold: 0.3
+        threshold: .8
     });
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const Block = (props) => {
             animate={animControls}
             id={id}>
             <div className={styles.contentDiv}>
-                <motion.h1 variants={animations}>{blockTitle}</motion.h1>
+                <motion.h1 variants={animations} className={titleClass}>{blockTitle}</motion.h1>
                 {blockTitle && <motion.hr variants={animations} className={styles.hr} />}
                 <motion.div variants={animations}>
                     {props.children}
