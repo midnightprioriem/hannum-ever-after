@@ -17,7 +17,7 @@ const Venue = (props) => {
     }
 
     return (
-        <Block blockTitle="Venue" id='venue' {...props} button buttonText="see on map" onClick={handleButtonClick}>
+        <Block blockTitle="Venue" id='venue' {...props} button buttonText="see on map" onClick={handleButtonClick} useHeight>
             <div className={styles.blockDivStyle}>
                 <div className={styles.verticalCenter}>
                     <h2>Station No. 2</h2>

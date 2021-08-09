@@ -5,6 +5,8 @@
     max-width: 500px;
     margin: auto;
     margin-top: 100px;
+    margin-bottom: 50px;
+    min-height: 600px;
 }
 
 .rsvpResponseDiv {
@@ -31,4 +33,12 @@
     height: 2px;
     border: 0px;
     /* width: 100px; */
+}
+
+.h2 {
+    font-size: 1.4em;
+}
+
+.p {
+    font-size: 1em;
 }

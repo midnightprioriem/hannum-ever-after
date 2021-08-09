@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer'
+import clsx from 'clsx';
 import Button from 'components/Button';
 import styles from 'components/block.module.css'
 
@@ -30,7 +31,7 @@ const animations = {
 }
 
 const Block = (props) => {
-    const { blockTitle, titleClass, id, button, buttonLink, buttonText, onClick } = props;
+    const { blockTitle, titleClass, id, button, buttonLink, buttonText, onClick, useHeight } = props;
     const animControls = useAnimation();
     const { ref, inView } = useInView({
         threshold: .8
@@ -44,7 +45,7 @@ const Block = (props) => {
 
     return (
         <motion.div
-            className={styles.root}
+            className={useHeight ? clsx(styles.root, styles.useHeight) : styles.root}
             ref={ref}
             variants={orchestrate}
             initial="hidden"

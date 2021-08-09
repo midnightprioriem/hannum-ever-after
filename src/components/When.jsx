@@ -20,7 +20,7 @@ const When = (props) => {
     };
 
     return (
-        <Block blockTitle="When" {...props} button buttonText="add to calendar" onClick={handleButtonClick}>
+        <Block blockTitle="When" {...props} button buttonText="add to calendar" onClick={handleButtonClick} useHeight>
             <div>
                 <h2 >Nov 6th, 2021<br />4:00 PM</h2>
                 <Countdown className={styles.p} renderer={countdownRenderer} date={new Date('November 6, 2021 15:00:00 EST')} />
