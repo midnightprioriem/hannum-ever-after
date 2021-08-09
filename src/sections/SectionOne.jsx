@@ -12,7 +12,8 @@ const SectionOne = (props) => {
 
     return (
         <div
-            className={styles.root}>
+            className={styles.root}
+            id='sectionOne'>
             <Venue id='venue'/>
             <When id='when'/>
             <Registry id='registry' />

@@ -2,7 +2,6 @@ import React from 'react';
 import { StylesProvider, ThemeProvider, createTheme } from '@material-ui/core/styles';
 import './App.css';
 import Hero from 'sections/Hero';
-import MenuBar from 'components/MenuBar';
 import SectionOne from 'sections/SectionOne';
 import SectionTwo from 'sections/SectionTwo';
 import Rsvp from 'components/Rsvp';
@@ -26,13 +25,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <StylesProvider injectFirst>
         <div className="container">
-          <MenuBar />
           <div
             className={styles.appRoot}>
             <Hero />
             <SectionOne />
             <SectionTwo />
-            <Rsvp />
+            <Rsvp id="rsvp"/>
             <Footer />
           </div>
         </div>
