@@ -26,7 +26,8 @@ const Block = (props) => {
     return (
         <AnimateOnView
             className={useHeight ? clsx(styles.root, styles.useHeight) : styles.root}
-            id={id}>
+            id={id}
+            viewThreshold={.8}>
             <div className={styles.contentDiv}>
                 <motion.h1 variants={animations} className={titleClass}>{blockTitle}</motion.h1>
                 {blockTitle && <motion.hr variants={animations} className={styles.hr} />}

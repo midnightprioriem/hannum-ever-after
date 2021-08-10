@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { AnimateOnView } from 'components/AnimateOnView';
 
 const animations = {
     hidden: {
@@ -17,33 +17,23 @@ const animations = {
     }
 }
 
-const Image = ({ index,
+const Image = ({
+    index,
     photo,
     margin,
     direction,
     top,
     left }) => {
 
-    const animControls = useAnimation();
-    const { ref, inView } = useInView({
-        threshold: .8
-    });
-
-    useEffect(() => {
-        if (inView) {
-            animControls.start("visible");
-        }
-    }, [animControls, inView]);
-
     return (
-        <motion.img
-            ref={ref}
-            alt={photo.title}
-            variants={animations}
-            initial="hidden"
-            animate={animControls}
-            {...photo}
-        />
+        <AnimateOnView viewThreshold={.8} style={{margin}}>
+            <motion.img
+                style={{ height: photo.height, width: photo.width }}
+                alt={photo.title}
+                variants={animations}
+                {...photo}
+            />
+        </AnimateOnView>
     );
 };
 

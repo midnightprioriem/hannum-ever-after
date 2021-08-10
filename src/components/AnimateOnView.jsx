@@ -14,10 +14,10 @@ export const orchestrate = {
 
 
 export const AnimateOnView = (props) => {
-    const { threshold } = props;
+    const { viewThreshold } = props;
     const animControls = useAnimation();
     const { ref, inView } = useInView({
-        threshold: threshold ? threshold : .8
+        threshold: viewThreshold ? viewThreshold : 0
     });
 
     useEffect(() => {

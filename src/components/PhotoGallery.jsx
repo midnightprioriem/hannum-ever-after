@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Gallery from 'react-photo-gallery';
 import { motion } from 'framer-motion';
 import { photos } from 'components/photos';
@@ -22,13 +22,26 @@ const animations = {
 }
 
 const PhotoGallery = () => {
+
+    const image = useCallback(
+        ({ index, left, top, key, photo, margin }) => (
+            <Image
+                key={key}
+                index={index}
+                photo={photo}
+                left={left}
+                top={top}
+                margin={margin}
+            />
+        ),
+        []
+    );
+
     return (
-        <AnimateOnView variants={animations} className={styles.root} threshold={.3}>
+        <AnimateOnView variants={animations} className={styles.root} viewThreshold={.1}>
             <motion.h1 variants={animations}>Our Story</motion.h1>
             <motion.p variants={animations}>A picture is worth eleven years.</motion.p>
-            <motion.div variants={animations}>
-                <Gallery photos={photos} margin={10} imageRenderer={<Image />} />
-            </motion.div>
+            <Gallery photos={photos} renderImage={image} margin={10}/>
         </AnimateOnView>
     );
 }

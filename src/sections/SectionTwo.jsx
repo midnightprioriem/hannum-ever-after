@@ -22,7 +22,7 @@ const textAnimations = {
 
 const SectionTwo = () => {
     return (
-        <AnimateOnView className={styles.root} threshhold={1}>
+        <AnimateOnView className={styles.root} viewThreshold={.8}>
             <motion.div variants={orchestrate} className={styles.container}>
                 <motion.div variants={orchestrate} className={styles.text}>
                     <motion.h1 variants={textAnimations} className={styles.h1}>The Venue</motion.h1>
