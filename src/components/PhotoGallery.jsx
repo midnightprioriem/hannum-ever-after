@@ -7,7 +7,7 @@ const PhotoGallery = () => {
     return (
         <div className={styles.root}>
         <h1>Our Story</h1>
-            <Gallery className={styles.root} photos={photos} margin={10}/>
+            <Gallery photos={photos} margin={10}/>
         </div>
     );
 }

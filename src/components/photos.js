@@ -17,12 +17,16 @@ import img16 from 'assets/pics/14.jpg';
 import img17 from 'assets/pics/15.jpeg';
 import img18 from 'assets/pics/16.jpg';
 import img19 from 'assets/pics/17.jpg';
+import img20 from 'assets/pics/18.jpg';
+import img21 from 'assets/pics/19.jpg';
+import img22 from 'assets/pics/20.jpg';
+import img23 from 'assets/pics/21.jpg';
 
 export const photos = [
     {
         src: img1,
-        width: 4,
-        height: 3,
+        width: 1,
+        height: 1,
     },
     {
         src: img2,
@@ -110,9 +114,24 @@ export const photos = [
         height: 5,
     },
     {
-        src: img19,
-        width: 16,
-        height: 9,
+        src: img20,
+        width: 5,
+        height: 4,
+    },
+    {
+        src: img21,
+        width: 5,
+        height: 7,
+    },
+    {
+        src: img22,
+        width: 4,
+        height: 5,
+    },
+    {
+        src: img23,
+        width: 5,
+        height: 7,
     },
 
 ];
