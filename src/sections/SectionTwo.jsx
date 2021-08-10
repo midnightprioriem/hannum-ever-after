@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 import styles from 'sections/sectiontwo.module.css';
-import stationTwo from 'assets/station_two_image.jpeg';
+import stationTwo from 'assets/pics/station_two_image.jpeg';
 
 const SectionTwo = () => {
     return (

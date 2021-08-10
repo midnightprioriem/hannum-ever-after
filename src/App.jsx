@@ -7,6 +7,7 @@ import SectionTwo from 'sections/SectionTwo';
 import Rsvp from 'components/Rsvp';
 import styles from 'app.module.css';
 import Footer from 'components/Footer';
+import PhotoGallery from 'components/PhotoGallery';
 
 const theme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ function App() {
             <Hero />
             <SectionOne />
             <SectionTwo />
+            <PhotoGallery />
             <Rsvp id="rsvp"/>
             <Footer />
           </div>
