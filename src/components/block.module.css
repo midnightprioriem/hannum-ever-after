@@ -16,6 +16,7 @@
 .useHeight {
     min-width: 300px;
     min-height: 600px;
+    max-height: 800px;
     height: 70vh;
 }
 
