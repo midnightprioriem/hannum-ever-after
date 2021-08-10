@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Gallery from 'react-photo-gallery';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { photos } from 'components/photos';
+import { AnimateOnView } from './AnimateOnView';
 import styles from 'components/photogallery.module.css';
 import Image from 'components/Image';
 
@@ -22,22 +22,14 @@ const animations = {
 }
 
 const PhotoGallery = () => {
-    const animControls = useAnimation();
-    const { ref, inView } = useInView({
-        threshold: .1
-    });
-
-    useEffect(() => {
-        if (inView) {
-            animControls.start("visible");
-        }
-    }, [animControls, inView]);
-
     return (
-        <motion.div ref={ref} initial="hidden" animate={animControls} variants={animations} className={styles.root}>
-            <h1>Our Story</h1>
-            <Gallery photos={photos} margin={10} imageRenderer={<Image />} />
-        </motion.div>
+        <AnimateOnView variants={animations} className={styles.root} threshold={.3}>
+            <motion.h1 variants={animations}>Our Story</motion.h1>
+            <motion.p variants={animations}>A picture is worth eleven years.</motion.p>
+            <motion.div variants={animations}>
+                <Gallery photos={photos} margin={10} imageRenderer={<Image />} />
+            </motion.div>
+        </AnimateOnView>
     );
 }
 
