@@ -17,6 +17,9 @@ const theme = createTheme({
     secondary: {
       main: '#BEA456',
     },
+    typography: {
+      fontFamily: ['"Josefin Sans"'].join(',')
+    },
   },
 });
 

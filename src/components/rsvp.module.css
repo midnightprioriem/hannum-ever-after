@@ -42,3 +42,21 @@
 .p {
     font-size: 1em;
 }
+
+.textarea {
+    background-color: #ffffff00;
+    font-family: "Josefin Sans";
+    font-size: 1em;
+    resize: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #797979;
+}
+
+.textarea:focus-visible {
+    background-color: #ffffff00;
+    border-radius: 10px;
+    border: 1px solid #BEA456;
+    outline: none;
+}

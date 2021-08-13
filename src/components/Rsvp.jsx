@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { animate, motion, useAnimation } from 'framer-motion';
-import { TextField, InputAdornment, IconButton, Checkbox } from '@material-ui/core';
+import { TextField, InputAdornment, IconButton, Checkbox, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Button from 'components/Button';
 import Block from 'components/Block';
 import styles from 'components/rsvp.module.css';
 import SheetDB from 'sheetdb-js';
+import formControlLabelStyles from 'components/formcontrollabel.module.css';
 
 const orchestrate = {
     hidden: {
@@ -38,13 +39,13 @@ const Rsvp = (props) => {
 
     const handleIsAttendingCheckBox = (event, i) => {
         let newFamily = [...family];
-        newFamily[i].is_attending = event.target.checked ? "TRUE" : "FALSE";
+        newFamily[i].is_attending = event.target.value;
         setFamily(newFamily);
     }
 
     const handleIsBringingGuestCheckBox = (event, i) => {
         let newFamily = [...family];
-        newFamily[i].is_bringing_guest = event.target.checked ? "TRUE" : "FALSE";
+        newFamily[i].is_bringing_guest = event.target.value;
         setFamily(newFamily);
     }
 
@@ -58,7 +59,7 @@ const Rsvp = (props) => {
         }).then((result) => {
             console.log(result);
             setFamily(result);
-            document.getElementById('rsvp').scrollIntoView({ 
+            document.getElementById('rsvp').scrollIntoView({
                 behavior: 'smooth',
                 alignToTop: false,
             });
@@ -105,20 +106,62 @@ const Rsvp = (props) => {
                         <motion.div key={id} className={styles.rsvpResponseDiv} variants={animatePresence}>
                             <h2 className={styles.h2} >{first_name} {last_name}</h2>
                             <div className={styles.rsvpFlex}>
-                                <p className={styles.p}>Will be attending?*</p>
+                                <p className={styles.p}>Will {first_name} be attending?</p>
                                 <div>
-                                    <Checkbox checked={is_attending === "TRUE"} required onChange={(e) => handleIsAttendingCheckBox(e, index)} />
+                                    <RadioGroup 
+                                        row 
+                                        aria-label="is-attending" 
+                                        name="is-attending"
+                                        defaultValue={is_attending}
+                                        onChange={(e) => {handleIsAttendingCheckBox(e, index)}}
+                                        >
+                                        <FormControlLabel
+                                            classes={formControlLabelStyles}
+                                            value="yes"
+                                            control={<Radio color="primary" />}
+                                            label="Yes"
+                                            labelPlacement="top"
+                                        />
+                                        <FormControlLabel
+                                            classes={formControlLabelStyles}
+                                            value="no"
+                                            control={<Radio color="primary" />}
+                                            label="No"
+                                            labelPlacement="top"
+                                        />
+                                    </RadioGroup>
                                 </div>
                             </div>
                             {allowed_guest === "TRUE" &&
                                 <div className={styles.rsvpFlex}>
-                                    <p className={styles.p}>Bringing guest?</p>
+                                    <p className={styles.p} style={{maxWidth:"150px"}}>Will {first_name} be bringing a guest?</p>
                                     <div>
-                                        <Checkbox required onChange={(e) => handleIsBringingGuestCheckBox(e, index)} />
+                                        <RadioGroup 
+                                            row 
+                                            aria-label="bringing-guest" 
+                                            name="bringing-guest"
+                                            defaultValue={is_bringing_guest}
+                                            onChange={(e) => {handleIsBringingGuestCheckBox(e, index)}}
+                                            >
+                                            <FormControlLabel
+                                                classes={formControlLabelStyles}
+                                                value="yes"
+                                                control={<Radio color="primary" />}
+                                                label="Yes"
+                                                labelPlacement="top"
+                                            />
+                                            <FormControlLabel
+                                                classes={formControlLabelStyles}
+                                                value="no"
+                                                control={<Radio color="primary" />}
+                                                label="No"
+                                                labelPlacement="top"
+                                            />
+                                        </RadioGroup>
                                     </div>
                                 </div>
                             }
-                            {is_bringing_guest === "TRUE" &&
+                            {is_bringing_guest === "yes" &&
                                 <motion.div variants={animatePresence} initial="hidden" animate="visible" className={styles.rsvpFlex}>
                                     <TextField
                                         id="guest_name"
@@ -131,6 +174,12 @@ const Rsvp = (props) => {
                             <motion.hr variants={animatePresence} className={styles.hr} />
                         </motion.div>
                     )}
+                    {family.length > 0 &&
+                        <motion.div variants={animatePresence}>
+                            <p>Drop us a comment!</p>
+                            <textarea className={styles.textarea} id="comments" name="Comments" rows="5" cols="45"/>
+                        </motion.div>
+                    }
                     {family.length > 0 && <motion.div variants={animatePresence}><Button onClick={handleRsvpSubmit}>Submit RSVP</Button></motion.div>}
                 </motion.form>
             </Block>
