@@ -37,6 +37,8 @@
 
 .h2 {
     font-size: 1.4em;
+    letter-spacing: .05em;
+    word-spacing: .3em;
 }
 
 .p {
