@@ -50,8 +50,7 @@
     font-family: "Josefin Sans";
     font-size: 1em;
     resize: none;
-    padding: 10px;
-    margin: 10px;
+    width: 100%;
     border-radius: 10px;
     border: 1px solid #797979;
 }

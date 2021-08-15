@@ -177,7 +177,7 @@ const Rsvp = (props) => {
                         <motion.div key={id} className={styles.rsvpResponseDiv} variants={animatePresence}>
                             <h2 className={styles.h2} >{first_name} {last_name}</h2>
                             <div className={styles.rsvpFlex}>
-                                <p className={styles.p}>Will {first_name} be attending?</p>
+                                <p className={styles.p} style={{ maxWidth: "160px" }}>Will {first_name} be attending?</p>
                                 <div>
                                     <RadioGroup
                                         row
@@ -204,7 +204,7 @@ const Rsvp = (props) => {
                             </div>
                             {allowed_guest === "TRUE" &&
                                 <div className={styles.rsvpFlex}>
-                                    <p className={styles.p} style={{ maxWidth: "150px" }}>
+                                    <p className={styles.p} style={{ maxWidth: "160px" }}>
                                         Will {first_name} be bringing a guest?
                                     </p>
                                     <div>
@@ -248,7 +248,7 @@ const Rsvp = (props) => {
                         </motion.div>
                     )}
                     {family.length > 0 &&
-                        <motion.div variants={animatePresence}>
+                        <motion.div variants={animatePresence} style={{margin:"10px"}}>
                             <p>Send us a message!</p>
                             <textarea
                                 onChange={(e) => { setComment(e.target.value) }}
@@ -256,7 +256,6 @@ const Rsvp = (props) => {
                                 id="comments"
                                 name="Comments"
                                 rows="5"
-                                cols="45"
                                 defaultValue={family[0].comment} />
                         </motion.div>
                     }
