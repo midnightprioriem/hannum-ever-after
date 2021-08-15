@@ -1,0 +1,17 @@
+.Toastify__toast--success {
+    background-color: #98971a;
+    font-family: 'Josefin Sans';
+    font-size: 1.25em;
+}
+
+.Toastify__toast--warning {
+    background-color: #BEA456;
+    font-family: 'Josefin Sans';
+    font-size: 1.25em;
+}
+
+.Toastify__toast--error {
+    background-color: #CC241D;
+    font-family: 'Josefin Sans';
+    font-size: 1.25em;
+}

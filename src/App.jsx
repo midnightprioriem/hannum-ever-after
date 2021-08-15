@@ -9,6 +9,8 @@ import styles from 'app.module.css';
 import Footer from 'components/Footer';
 import PhotoGallery from 'components/PhotoGallery';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'components/toastify.css';
 
 const theme = createTheme({
   palette: {
@@ -42,7 +44,7 @@ function App() {
         </div>
         <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={10000}
           hideProgressBar={false}
           newestOnTop={true}
           closeOnClick

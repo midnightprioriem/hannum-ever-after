@@ -4,7 +4,6 @@ import { TextField, InputAdornment, IconButton, RadioGroup, FormControlLabel, Ra
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 import sha1 from 'js-sha1';
 import Button from 'components/Button';
 import Block from 'components/Block';
@@ -75,7 +74,7 @@ const Rsvp = (props) => {
             setLoading(false);
             console.log(result);
             if (result.data.length === 0) {
-                toast.warn('😔 Code not found, try again!');
+                toast.warn('😔 Invitation code not found, try again!');
             }
             else {
                 setFamily(result.data);
@@ -117,16 +116,16 @@ const Rsvp = (props) => {
     const handleApiError = (error) => {
         if (error.reponse) {
             console.log('error.response');
-            toast.error('😔 ' + error.response.status);
+            toast.error('😭 ' + error.response.status);
         }
         else if (error.request) {
             console.log('error.request');
             console.log(error.request);
-            toast.error('😔 HTTP Request Error ' + error.request.status);
+            toast.error('😭 HTTP Request Error ' + error.request.status);
         }
         else {
             console.log('error.message');
-            toast.error('😔 ' + error.message);
+            toast.error('😭 ' + error.message);
         }
     }
 
