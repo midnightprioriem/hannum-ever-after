@@ -4,6 +4,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import Block from 'components/Block';
 import styles from 'components/venue.module.css';
+import dialogStyles from 'components/dialogstyles.module.css';
 
 const Venue = (props) => {
     const [openMapView, setOpenMapView] = useState(false);
@@ -24,7 +25,7 @@ const Venue = (props) => {
                     <p>602 S 5th AVE,<br />WILMINGTON, NC 28401</p>
                 </div>
             </div>
-            <Dialog open={openMapView} onClose={handleClose} maxWidth="lg" classes={styles}>
+            <Dialog open={openMapView} onClose={handleClose} maxWidth="lg" classes={dialogStyles}>
                 <DialogContent>
                     <div className={styles.mapTitle}>
                         <p>Station No. 2</p>

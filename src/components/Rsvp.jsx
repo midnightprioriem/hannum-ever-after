@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import { animate, motion, useAnimation } from 'framer-motion';
-import { TextField, InputAdornment, IconButton, Checkbox, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import { motion, useAnimation } from 'framer-motion';
+import { TextField, InputAdornment, IconButton, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import sha1 from 'js-sha1';
 import Button from 'components/Button';
 import Block from 'components/Block';
 import styles from 'components/rsvp.module.css';
-import SheetDB from 'sheetdb-js';
 import formControlLabelStyles from 'components/formcontrollabel.module.css';
+const axios = require('axios').default;
+
+const api = axios.create({
+    baseURL: 'https://sheetdb.io/api/v1/ysnwocbrmo583',
+    timeout: 5000,
+});
 
 const orchestrate = {
     hidden: {
@@ -35,6 +41,7 @@ const Rsvp = (props) => {
 
     const [code, setCode] = useState("");
     const [family, setFamily] = useState([]);
+    const [comment, setComment] = useState("");
     const animation = useAnimation();
 
     const handleIsAttendingCheckBox = (event, i) => {
@@ -49,16 +56,18 @@ const Rsvp = (props) => {
         setFamily(newFamily);
     }
 
+    const handleGuestName = (name, i) => {
+        let newFamily = [...family];
+        newFamily[i].guest_name = name;
+        setFamily(newFamily);
+    }
+
     const handleSearchCode = (e) => {
         e.preventDefault();
-        const invitation_code = code.trim();
-        SheetDB.read("https://sheetdb.io/api/v1/ysnwocbrmo583", {
-            search: {
-                invitation_code: invitation_code,
-            }
-        }).then((result) => {
+        const invitation_code = sha1(code.trim());
+        api.get("https://sheetdb.io/api/v1/ysnwocbrmo583/search?invitation_code=" + invitation_code).then((result) => {
             console.log(result);
-            setFamily(result);
+            setFamily(result.data);
             document.getElementById('rsvp').scrollIntoView({
                 behavior: 'smooth',
                 alignToTop: false,
@@ -71,7 +80,24 @@ const Rsvp = (props) => {
 
     const handleRsvpSubmit = (e) => {
         e.preventDefault();
-        console.log(family);
+        let submitFamily = [...family];
+        submitFamily.map((person) => {
+            person.did_rsvp = "TRUE";
+            person.comment = comment;
+            person.query = "id=" + person.id;
+            return person;
+        });
+        console.log(submitFamily);
+        api.put('/batch_update', {
+            data: submitFamily
+        }).then((result) => {
+            console.log(result);
+            setFamily([]);
+            setCode("");
+        }, (error) => {
+            console.log(error);
+        });
+
     }
 
     return (
@@ -83,6 +109,7 @@ const Rsvp = (props) => {
                         id="code"
                         required
                         label="Code" variant="outlined" fullWidth
+                        value={code}
                         onChange={e => setCode(e.target.value)}
                         InputProps={{
                             endAdornment:
@@ -102,19 +129,26 @@ const Rsvp = (props) => {
                     variants={orchestrate}
                     initial="hidden"
                     animate={animation}>
-                    {family.map(({ id, first_name, last_name, is_attending, allowed_guest, is_bringing_guest }, index) =>
+                    {family.map(({
+                        id,
+                        first_name,
+                        last_name,
+                        is_attending,
+                        allowed_guest,
+                        is_bringing_guest,
+                        guest_name,
+                    }, index) =>
                         <motion.div key={id} className={styles.rsvpResponseDiv} variants={animatePresence}>
                             <h2 className={styles.h2} >{first_name} {last_name}</h2>
                             <div className={styles.rsvpFlex}>
                                 <p className={styles.p}>Will {first_name} be attending?</p>
                                 <div>
-                                    <RadioGroup 
-                                        row 
-                                        aria-label="is-attending" 
+                                    <RadioGroup
+                                        row
+                                        aria-label="is-attending"
                                         name="is-attending"
-                                        defaultValue={is_attending}
-                                        onChange={(e) => {handleIsAttendingCheckBox(e, index)}}
-                                        >
+                                        value={is_attending}
+                                        onChange={(e) => { handleIsAttendingCheckBox(e, index) }}>
                                         <FormControlLabel
                                             classes={formControlLabelStyles}
                                             value="yes"
@@ -134,15 +168,16 @@ const Rsvp = (props) => {
                             </div>
                             {allowed_guest === "TRUE" &&
                                 <div className={styles.rsvpFlex}>
-                                    <p className={styles.p} style={{maxWidth:"150px"}}>Will {first_name} be bringing a guest?</p>
+                                    <p className={styles.p} style={{ maxWidth: "150px" }}>
+                                        Will {first_name} be bringing a guest?
+                                    </p>
                                     <div>
-                                        <RadioGroup 
-                                            row 
-                                            aria-label="bringing-guest" 
+                                        <RadioGroup
+                                            row
+                                            aria-label="bringing-guest"
                                             name="bringing-guest"
-                                            defaultValue={is_bringing_guest}
-                                            onChange={(e) => {handleIsBringingGuestCheckBox(e, index)}}
-                                            >
+                                            value={is_bringing_guest}
+                                            onChange={(e) => { handleIsBringingGuestCheckBox(e, index) }}>
                                             <FormControlLabel
                                                 classes={formControlLabelStyles}
                                                 value="yes"
@@ -165,9 +200,11 @@ const Rsvp = (props) => {
                                 <motion.div variants={animatePresence} initial="hidden" animate="visible" className={styles.rsvpFlex}>
                                     <TextField
                                         id="guest_name"
+                                        defaultValue={guest_name}
                                         fullWidth
                                         required
                                         label="Guest Name" variant="outlined"
+                                        onChange={(e) => { handleGuestName(e.target.value, index) }}
                                     />
                                 </motion.div>
                             }
@@ -177,10 +214,23 @@ const Rsvp = (props) => {
                     {family.length > 0 &&
                         <motion.div variants={animatePresence}>
                             <p>Drop us a comment!</p>
-                            <textarea className={styles.textarea} id="comments" name="Comments" rows="5" cols="45"/>
+                            <textarea
+                                onChange={(e) => { setComment(e.target.value) }}
+                                className={styles.textarea}
+                                id="comments"
+                                name="Comments"
+                                rows="5"
+                                cols="45"
+                                defaultValue={family[0].comment} />
                         </motion.div>
                     }
-                    {family.length > 0 && <motion.div variants={animatePresence}><Button onClick={handleRsvpSubmit}>Submit RSVP</Button></motion.div>}
+                    {family.length > 0 &&
+                        <motion.div variants={animatePresence}>
+                            <Button onClick={handleRsvpSubmit}>
+                                Submit RSVP
+                            </Button>
+                        </motion.div>
+                    }
                 </motion.form>
             </Block>
         </div>
