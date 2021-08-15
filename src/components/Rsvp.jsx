@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { TextField, InputAdornment, IconButton, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import { TextField, InputAdornment, IconButton, RadioGroup, FormControlLabel, Radio, CircularProgress } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import sha1 from 'js-sha1';
 import Button from 'components/Button';
 import Block from 'components/Block';
 import styles from 'components/rsvp.module.css';
+import linkStyles from 'components/links.module.css';
 import formControlLabelStyles from 'components/formcontrollabel.module.css';
 const axios = require('axios').default;
 
@@ -42,6 +46,7 @@ const Rsvp = (props) => {
     const [code, setCode] = useState("");
     const [family, setFamily] = useState([]);
     const [comment, setComment] = useState("");
+    const [loading, setLoading] = useState(false);
     const animation = useAnimation();
 
     const handleIsAttendingCheckBox = (event, i) => {
@@ -64,17 +69,25 @@ const Rsvp = (props) => {
 
     const handleSearchCode = (e) => {
         e.preventDefault();
+        setLoading(true);
         const invitation_code = sha1(code.trim());
-        api.get("https://sheetdb.io/api/v1/ysnwocbrmo583/search?invitation_code=" + invitation_code).then((result) => {
+        api.get("/search?invitation_code=" + invitation_code).then((result) => {
+            setLoading(false);
             console.log(result);
-            setFamily(result.data);
-            document.getElementById('rsvp').scrollIntoView({
-                behavior: 'smooth',
-                alignToTop: false,
-            });
-            animation.start("visible");
+            if (result.data.length === 0) {
+                toast.warn('😔 Code not found, try again!');
+            }
+            else {
+                setFamily(result.data);
+                document.getElementById('rsvp').scrollIntoView({
+                    behavior: 'smooth',
+                    alignToTop: false,
+                });
+                animation.start("visible");
+            }
         }, (error) => {
-            console.log(error);
+            setLoading(false);
+            handleApiError(error);
         });
     }
 
@@ -91,13 +104,30 @@ const Rsvp = (props) => {
         api.put('/batch_update', {
             data: submitFamily
         }).then((result) => {
+            toast.success('👏 RSVP submitted, thank you for your response!');
             console.log(result);
             setFamily([]);
             setCode("");
         }, (error) => {
-            console.log(error);
+            handleApiError(error);
         });
 
+    }
+
+    const handleApiError = (error) => {
+        if (error.reponse) {
+            console.log('error.response');
+            toast.error('😔 ' + error.response.status);
+        }
+        else if (error.request) {
+            console.log('error.request');
+            console.log(error.request);
+            toast.error('😔 HTTP Request Error ' + error.request.status);
+        }
+        else {
+            console.log('error.message');
+            toast.error('😔 ' + error.message);
+        }
     }
 
     return (
@@ -114,16 +144,22 @@ const Rsvp = (props) => {
                         InputProps={{
                             endAdornment:
                                 <InputAdornment position="end">
-                                    <IconButton
-                                        size="medium"
-                                        aria-label="submit code"
-                                        onClick={handleSearchCode}
-                                    >
-                                        <ArrowForwardIcon />
-                                    </IconButton>
+                                    {loading ? <CircularProgress /> :
+                                        <IconButton
+                                            size="medium"
+                                            aria-label="submit code"
+                                            onClick={handleSearchCode}
+                                        >
+                                            <ArrowForwardIcon />
+                                        </IconButton>}
                                 </InputAdornment>
-                        }}
-                    />
+                        }} />
+                    <p style={{ fontSize: "1em" }}>
+                        <a className={linkStyles.link} href="mailto: zacharyhannum@gmail.com">
+                            Having issues with RSVP?
+                        </a>
+                    </p>
+
                 </form>
                 <motion.form className={styles.form} onSubmit={handleRsvpSubmit}
                     variants={orchestrate}
@@ -213,7 +249,7 @@ const Rsvp = (props) => {
                     )}
                     {family.length > 0 &&
                         <motion.div variants={animatePresence}>
-                            <p>Drop us a comment!</p>
+                            <p>Send us a message!</p>
                             <textarea
                                 onChange={(e) => { setComment(e.target.value) }}
                                 className={styles.textarea}

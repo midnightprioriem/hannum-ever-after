@@ -8,6 +8,7 @@ import Rsvp from 'components/Rsvp';
 import styles from 'app.module.css';
 import Footer from 'components/Footer';
 import PhotoGallery from 'components/PhotoGallery';
+import { ToastContainer } from 'react-toastify';
 
 const theme = createTheme({
   palette: {
@@ -35,10 +36,18 @@ function App() {
             <SectionOne />
             <SectionTwo />
             <PhotoGallery />
-            <Rsvp id="rsvp"/>
+            <Rsvp id="rsvp" />
             <Footer />
           </div>
         </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick
+          draggable
+          pauseOnHover />
       </StylesProvider>
     </ThemeProvider>
   );
