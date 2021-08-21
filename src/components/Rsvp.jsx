@@ -54,6 +54,12 @@ const Rsvp = (props) => {
         setFamily(newFamily);
     }
 
+    const handleIsAttendingRehearsalCheckBox = (event, i) => {
+        let newFamily = [...family];
+        newFamily[i].is_attending_rehearsal = event.target.value;
+        setFamily(newFamily);
+    }
+
     const handleIsBringingGuestCheckBox = (event, i) => {
         let newFamily = [...family];
         newFamily[i].is_bringing_guest = event.target.value;
@@ -169,6 +175,8 @@ const Rsvp = (props) => {
                         first_name,
                         last_name,
                         is_attending,
+                        is_invited_to_rehearsal,
+                        is_attending_rehearsal,
                         allowed_guest,
                         is_bringing_guest,
                         guest_name,
@@ -176,7 +184,7 @@ const Rsvp = (props) => {
                         <motion.div key={id} className={styles.rsvpResponseDiv} variants={animatePresence}>
                             <h2 className={styles.h2} >{first_name} {last_name}</h2>
                             <div className={styles.rsvpFlex}>
-                                <p className={styles.p} style={{ maxWidth: "160px" }}>Will {first_name} be attending?</p>
+                                <p className={styles.p} style={{ maxWidth: "160px" }}>Will {first_name} be attending the wedding?</p>
                                 <div>
                                     <RadioGroup
                                         row
@@ -201,6 +209,33 @@ const Rsvp = (props) => {
                                     </RadioGroup>
                                 </div>
                             </div>
+                            {is_invited_to_rehearsal === "TRUE" &&
+                                <div className={styles.rsvpFlex}>
+                                    <p className={styles.p} style={{ maxWidth: "160px" }}>Will {first_name} be attending the rehearsal?</p>
+                                    <div>
+                                        <RadioGroup
+                                            row
+                                            aria-label="is-attending-rehearsal"
+                                            name="is-attending-rehearsal"
+                                            value={is_attending_rehearsal}
+                                            onChange={(e) => { handleIsAttendingRehearsalCheckBox(e, index) }}>
+                                            <FormControlLabel
+                                                classes={formControlLabelStyles}
+                                                value="yes"
+                                                control={<Radio color="primary" />}
+                                                label="Yes"
+                                                labelPlacement="top"
+                                            />
+                                            <FormControlLabel
+                                                classes={formControlLabelStyles}
+                                                value="no"
+                                                control={<Radio color="primary" />}
+                                                label="No"
+                                                labelPlacement="top"
+                                            />
+                                        </RadioGroup>
+                                    </div>
+                                </div>}
                             {allowed_guest === "TRUE" &&
                                 <div className={styles.rsvpFlex}>
                                     <p className={styles.p} style={{ maxWidth: "160px" }}>
@@ -247,7 +282,7 @@ const Rsvp = (props) => {
                         </motion.div>
                     )}
                     {family.length > 0 &&
-                        <motion.div variants={animatePresence} style={{margin:"10px"}}>
+                        <motion.div variants={animatePresence} style={{ margin: "10px" }}>
                             <p>Send us a message!</p>
                             <textarea
                                 onChange={(e) => { setComment(e.target.value) }}
