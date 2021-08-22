@@ -184,10 +184,11 @@ const Rsvp = (props) => {
                         <motion.div key={id} className={styles.rsvpResponseDiv} variants={animatePresence}>
                             <h2 className={styles.h2} >{first_name} {last_name}</h2>
                             <div className={styles.rsvpFlex}>
-                                <p className={styles.p} style={{ maxWidth: "160px" }}>Will {first_name} be attending the wedding?</p>
+                                <p className={styles.p}>Will {first_name} be attending the wedding?</p>
                                 <div>
                                     <RadioGroup
                                         row
+                                        style={{ minWidth: "150px" }}  
                                         aria-label="is-attending"
                                         name="is-attending"
                                         value={is_attending}
@@ -211,9 +212,10 @@ const Rsvp = (props) => {
                             </div>
                             {is_invited_to_rehearsal === "TRUE" &&
                                 <div className={styles.rsvpFlex}>
-                                    <p className={styles.p} style={{ maxWidth: "160px" }}>Will {first_name} be attending the rehearsal?</p>
+                                    <p className={styles.p}>Will {first_name} be attending the rehearsal?</p>
                                     <div>
                                         <RadioGroup
+                                            style={{ minWidth: "150px" }}   
                                             row
                                             aria-label="is-attending-rehearsal"
                                             name="is-attending-rehearsal"
@@ -238,12 +240,13 @@ const Rsvp = (props) => {
                                 </div>}
                             {allowed_guest === "TRUE" &&
                                 <div className={styles.rsvpFlex}>
-                                    <p className={styles.p} style={{ maxWidth: "160px" }}>
+                                    <p className={styles.p}>
                                         Will {first_name} be bringing a guest?
                                     </p>
                                     <div>
                                         <RadioGroup
                                             row
+                                            style={{ minWidth: "150px" }}  
                                             aria-label="bringing-guest"
                                             name="bringing-guest"
                                             value={is_bringing_guest}
