@@ -212,7 +212,7 @@ const Rsvp = (props) => {
                             </div>
                             {is_invited_to_rehearsal === "TRUE" &&
                                 <div className={styles.rsvpFlex}>
-                                    <p className={styles.p}>Will {first_name} be attending the rehearsal?</p>
+                                    <p className={styles.p}>Will {first_name} be attending the rehearsal dinner?</p>
                                     <div>
                                         <RadioGroup
                                             style={{ minWidth: "150px" }}   
