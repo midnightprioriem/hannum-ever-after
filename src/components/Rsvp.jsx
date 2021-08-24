@@ -75,7 +75,7 @@ const Rsvp = (props) => {
     const handleSearchCode = (e) => {
         e.preventDefault();
         setLoading(true);
-        const invitation_code = sha1(code.trim());
+        const invitation_code = sha1(code.trim().toUpperCase());
         api.get("/search?invitation_code=" + invitation_code).then((result) => {
             setLoading(false);
             console.log(result);
