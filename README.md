@@ -1,7 +1,6 @@
 <p align="center">
     <img src="./design/title.png" width="600" alt="PEST">
     <p align="center">
-        <img alt="GitHub Workflow Status (master)" src="https://img.shields.io/github/workflow/status/pestphp/pest/Continuous Integration/master">
     </p>
 </p>
 
